@@ -1,39 +1,44 @@
 {
   "notes": [
     {
-      "text": "The app state is in redux store",
-      "completed": true,
-      "id": 1
+      "text": "hello world 2",
+      "completed": false,
+      "id": 8
     },
     {
-      "text": "The app state is in redux store",
+      "text": "a new note",
       "completed": false,
-      "id": 2
+      "id": 9
     },
     {
-      "text": "This is new notes from localhost3001",
+      "text": "a note from refraction",
       "completed": false,
-      "id": 3
+      "id": 10
     },
     {
-      "text": "hsdfhdg",
+      "text": "a note from refraction",
       "completed": false,
-      "id": 4
+      "id": 11
     },
     {
-      "text": "asgd",
+      "text": "new node",
       "completed": false,
-      "id": 5
+      "id": 12
     },
     {
-      "text": "gdgga",
+      "text": "asas",
       "completed": false,
-      "id": 6
+      "id": 13
     },
     {
-      "text": "hello",
+      "text": "new node",
       "completed": false,
-      "id": 7
+      "id": 14
+    },
+    {
+      "text": "new node again",
+      "completed": false,
+      "id": 15
     }
   ]
 }

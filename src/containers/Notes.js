@@ -1,21 +1,23 @@
-import React from "react";
-import { useSelector, useDispatch } from "react-redux";
-import * as actionTypes from "../store/actions";
+import React from 'react';
+import { useDispatch } from 'react-redux';
+import { DELETE_NOTE, TOGGLE_TODO } from '../store/actions';
+import { deleteNote } from '../services/notes';
 
-function Notes(props) {
-  const notes = useSelector((state) => state);
+const Notes = ({ notes }) => {
   const dispatch = useDispatch();
 
   const toggleTodo = (id) => ({
-    type: actionTypes.TOGGLE_TODO,
+    type: TOGGLE_TODO,
     id: id,
   });
 
-  const deleteTodo = (id) => ({
-    type: actionTypes.DELETE_NOTE,
-    id: id,
-  });
-  //   const texts = useSelector((state) => state.texts);
+  const handleDelete = async (id) => {
+    //delete note from backend
+    await deleteNote(id);
+    //update redux store
+    dispatch({ type: DELETE_NOTE, data: id });
+  };
+
   return (
     <div>
       <ul>
@@ -23,12 +25,12 @@ function Notes(props) {
           <li
             key={note.id}
             onClick={() => dispatch(toggleTodo(note.id))}
-            className={note.completed ? "strike todo" : "todo"}
+            className={note.completed ? 'strike todo' : 'todo'}
           >
             {note.text}
             <span
-              className="material-icons"
-              onClick={() => dispatch(deleteTodo(note.id))}
+              className='material-icons'
+              onClick={() => handleDelete(note.id)}
             >
               delete_forever
             </span>
@@ -37,6 +39,6 @@ function Notes(props) {
       </ul>
     </div>
   );
-}
+};
 
 export default Notes;
