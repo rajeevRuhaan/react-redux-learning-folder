@@ -1,0 +1,39 @@
+{
+  "notes": [
+    {
+      "text": "The app state is in redux store",
+      "completed": true,
+      "id": 1
+    },
+    {
+      "text": "The app state is in redux store",
+      "completed": false,
+      "id": 2
+    },
+    {
+      "text": "This is new notes from localhost3001",
+      "completed": false,
+      "id": 3
+    },
+    {
+      "text": "hsdfhdg",
+      "completed": false,
+      "id": 4
+    },
+    {
+      "text": "asgd",
+      "completed": false,
+      "id": 5
+    },
+    {
+      "text": "gdgga",
+      "completed": false,
+      "id": 6
+    },
+    {
+      "text": "hello",
+      "completed": false,
+      "id": 7
+    }
+  ]
+}
