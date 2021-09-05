@@ -1,34 +1,42 @@
 import React from "react";
-import { useSelector, useDispatch } from "react-redux";
-import * as actionTypes from "../store/actions";
+import { useDispatch, useSelector } from "react-redux";
+import { deleteNote, toggleTodo } from "../services/notes";
+import { DELETE_NOTE, TOGGLE_TODO } from "../store/actions";
 
-function Notes(props) {
-  const notes = useSelector((state) => state);
+function Notes({ notes }) {
+  console.log(notes);
   const dispatch = useDispatch();
 
-  const toggleTodo = (id) => ({
-    type: actionTypes.TOGGLE_TODO,
-    id: id,
-  });
+  const toggleNote = async (id, text, completed) => {
+    await toggleTodo(id, text, completed);
+    dispatch({
+      type: TOGGLE_TODO,
+      data: id,
+    });
+  };
 
-  const deleteTodo = (id) => ({
-    type: actionTypes.DELETE_NOTE,
-    id: id,
-  });
-  //   const texts = useSelector((state) => state.texts);
+  const handleDelete = async (id) => {
+    await deleteNote(id);
+
+    dispatch({
+      type: DELETE_NOTE,
+      data: id,
+    });
+  };
+
   return (
     <div>
       <ul>
         {notes.map((note) => (
           <li
             key={note.id}
-            onClick={() => dispatch(toggleTodo(note.id))}
+            onClick={() => toggleNote(note.id, note.text, note.completed)}
             className={note.completed ? "strike todo" : "todo"}
           >
             {note.text}
             <span
               className="material-icons"
-              onClick={() => dispatch(deleteTodo(note.id))}
+              onClick={() => handleDelete(note.id)}
             >
               delete_forever
             </span>
